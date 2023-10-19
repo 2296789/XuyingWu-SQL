@@ -15,9 +15,8 @@ if(isset($_GET['id']) && $_GET['id']!=null ){
     $auteur = $crud->selectId('utilisateur', $auteur_id);
     $auteur_nom = $auteur['nom'];
 
-    // $commentaire = $crud->selectId('commentaire', $id);
-    // $contenu = $commentaire['contenu'];
-    // 对于最初设置的article没问题，新增的不行
+    $commentaire = $crud->selectId('commentaire', $id);
+    $contenu = $commentaire['contenu'];
 }else{
     header('location:index.php');
 }
@@ -35,7 +34,7 @@ if(isset($_GET['id']) && $_GET['id']!=null ){
     <p><?= $text; ?></p>
     <p><strong>Auteur : </strong><?= $auteur_nom; ?></p>
     <p><strong>Categorie : </strong><?= $categorie_nom; ?></p>
-    <!-- <p><strong>Commentaire : </strong><?= $contenu ?></p> -->
+    <p><strong>Commentaire : </strong><?= $contenu ?></p>
 
     <button><a href="article-edit.php?id=<?= $id; ?>">Edit</a></button>
     
